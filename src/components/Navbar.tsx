@@ -40,8 +40,11 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Editorial Announcement Strip */}
       <div className="announcement-strip">
         <div className="container announcement-content">
-          <span className="announcement-text">
+          <span className="announcement-text desktop-announcement">
             Complimentary worldwide courier dispatch on all curated commissions · Zurich · Tokyo · Copenhagen · New York
+          </span>
+          <span className="announcement-text mobile-announcement">
+            Complimentary Courier Dispatch
           </span>
           <div className="currency-selector-wrapper">
             <span className="currency-label">Currency:</span>

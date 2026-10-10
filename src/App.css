@@ -111,11 +111,15 @@
   background-color: var(--bg-canvas);
   position: relative;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .site-main-content {
   flex: 1;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* --------------------------------------------------------------------------
@@ -128,6 +132,9 @@
   background-color: var(--bg-canvas);
   border-bottom: 1px solid var(--border-hairline);
   transition: border-color 0.2s ease;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .announcement-strip {
@@ -137,34 +144,59 @@
   letter-spacing: 0.04em;
   padding: 8px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .announcement-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .announcement-text {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 0;
+  flex: 1;
+}
+
+.desktop-announcement {
+  display: none;
+}
+
+.mobile-announcement {
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .desktop-announcement {
+    display: inline;
+  }
+  .mobile-announcement {
+    display: none;
+  }
 }
 
 .currency-selector-wrapper {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   flex-shrink: 0;
 }
 
 .currency-label {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: #a3a29e;
 }
 
@@ -191,6 +223,8 @@
 
 .main-navbar {
   background-color: var(--bg-canvas);
+  width: 100%;
+  max-width: 100%;
 }
 
 .navbar-container {
@@ -198,7 +232,9 @@
   align-items: center;
   justify-content: space-between;
   height: var(--nav-height);
-  gap: var(--space-md);
+  gap: 8px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .brand-logo-btn {
@@ -206,14 +242,16 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  min-width: 0;
+  flex-shrink: 1;
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
 .brand-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 3.5vw, 1.48rem);
+  font-size: clamp(1.15rem, 4vw, 1.48rem);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   color: var(--text-main);
   line-height: 1.1;
   white-space: nowrap;
@@ -221,11 +259,32 @@
 
 .brand-subtitle {
   font-family: var(--font-mono);
-  font-size: clamp(0.55rem, 1.5vw, 0.62rem);
-  letter-spacing: 0.16em;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
   color: var(--text-muted);
   margin-top: 2px;
   white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .brand-subtitle {
+    display: none;
+  }
+  .brand-title {
+    font-size: 1.12rem;
+    letter-spacing: 0.1em;
+  }
+  .bag-label {
+    display: none;
+  }
+  .bag-toggle-btn {
+    padding: 6px 9px;
+    gap: 5px;
+  }
+  .navbar-actions {
+    gap: 6px;
+    flex-shrink: 0;
+  }
 }
 
 .desktop-nav-links {
